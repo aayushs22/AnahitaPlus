@@ -65,6 +65,17 @@ roslaunch odom_dvl_imu odom.launch
 roslaunch uuv_thruster_manager thruster_manager.launch model_name:=anahita (for simulation)
 master_layer/anahita_thruster_manager.py (for real navigation) 
 ```
+### How to ssh via direct ethernet/switch
+
+1. Sudo apt-get install openssh-server and openssh-  client
+2. Connect ethernet directly/via switch. Connect in all ports except uplink.
+
+3. Set ip address via `  sudo ip ad add 10.0.0.40/24 dev eno1` on both/all pcs, use different ip addresses(arbitrary but 10.0.0.xyz) and instead of eno1, use ethernet device name which can be seen by the command ifconfig.
+
+3. Use ping 10.0.0.xyz to see if the connection is working.
+
+5. If working , use the command
+`ssh username@10.0.0.xyz`
 
 ## Contribution Guidelines
 
